@@ -3,95 +3,146 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>✨ 霓虹桌面时钟</title>
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            margin: 0;
-            background-color: #0d0224; /* 深夜蓝/紫，赛博朋克背景 */
-            font-family: 'Orbitron', sans-serif; /* 使用更具未来感的字体 */
-            color: #00ffff; /* 电光蓝/青色，霓虹主色 */
-            text-shadow: 0 0 5px #00ccff, 0 0 10px #0088ff; /* 基础发光效果 */
-            overflow: hidden;
-        }
-        #clock-widget {
-            background: rgba(0, 10, 40, 0.6) /* 半透明深色背景 */
-            backdrop-filter: blur(10px) /* 增加磨砂玻璃效果 */
-            border: 2px solid #00ffff; /* 霓虹边框 */
-            box-shadow:
-                0 0 20px #00ffff, /* 外围发光 */
-                inset 0 0 25px rgba(0, 255, 255, 0.2); /* 内部发光 */
-            text-align: center;
-            width: 100%;
-            max-width: 400px;
-            padding: 30px 20px;
-            border-radius: 10px;
-            transition: all 0.3s;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-        #time {
-            font-size: 6em; /* 放大字体 */
-            margin: 0;
-            font-weight: 700;
-            letter-spacing: 8px;
-            text-shadow:
-                0 0 10px #00ffff,
-                0 0 20px #0088ff,
-                0 0 30px #0044ff; /* 增强发光效果 */
-            display: block;
-            white-space: nowrap;
-            padding: 0 20px;
-        }
-        #date {
-            font-size: 1.4em;
-            margin-top: 15px;
-            opacity: 0.9;
-            text-shadow: 0 0 8px #00aaaa;
-            max-width: 100%;
-        }
-    </style>
+    <title>[您的名字] - 作品集</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- 引入一个通用字体，模拟苹果的无衬线字体 -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div id="clock-widget">
-        <div id="time">--:--:--</div>
-        <div id="date">-- / -- / ----</div>
-    </div>
 
-    <script>
-        function updateClock() {
-            const now = new Date();
+    <!-- 导航栏 (固定在顶部，保持最小化) -->
+    <header class="header">
+        <div class="container">
+            <a href="#hero" class="brand-logo">[您的名字]</a>
+            <nav>
+                <a href="#about">关于</a>
+                <a href="#skills">技能</a>
+                <a href="#portfolio">作品集</a>
+                <a href="#contact">联系</a>
+            </nav>
+        </div>
+    </header>
 
-            // 1. 时间 (HH:MM:SS AM/PM)
-            let hours = now.getHours();
-            let minutes = now.getMinutes();
-            let seconds = now.getSeconds();
+    <!-- 1. 英雄展示区 (Hero Section) -->
+    <section id="hero" class="section full-height hero">
+        <div class="container">
+            <h1 class="hero-title">图文创作舍</h1>
+            <h2 class="hero-subtitle">化繁为简，给你想要的设计</h2>
+            <p class="hero-tagline">建筑外立面改造，室内布局规划，品牌形象，及相关视觉表达。</p>
+            <a href="#portfolio" class="btn btn-primary">查看作品集 →</a>
+        </div>
+    </section>
 
-            const ampm = hours >= 12 ? 'PM' : 'AM';
-            hours = hours % 12;
-            hours = hours ? hours : 12;
+    <!-- 2. 关于我 (About Section) -->
+    <section id="about" class="section padding-vertical">
+        <div class="container layout-two-col">
+            <div class="about-image">
+                <!-- 放置一张高质量的、居中对齐的个人照片，增加立体感 -->
+                <img src="placeholder_profile.jpg" alt="个人头像">
+            </div>
+            <div class="about-text">
+                <h3 class="section-title">个人介绍</h3>
+                <p class="lead-paragraph">你好，我是文心。我是一个跨领域的设计师，相信优秀的产品设计不应仅仅停留在视觉层面，更应该深入到用户行为和商业目标中去。我热衷于将复杂的功能以最简单、最优雅的流程展现给用户，每一次交互都应该流畅且直观。</p>
+                <p>我的设计哲学是：**用最少的元素，讲述最完整的故事。**</p>
+                <a href="#portfolio" class="btn btn-secondary">查看我的项目进行展示 ↓</a>
+            </div>
+        </div>
+    </section>
 
-            hours = String(hours).padStart(2, '0');
-            minutes = String(minutes).padStart(2, '0');
-            seconds = String(seconds).padStart(2, '0');
+    <!-- 3. 技能模块 (Skills Section) -->
+    <section id="skills" class="section padding-vertical bg-alt">
+        <div class="container">
+            <h3 class="section-title centered">核心技能树</h3>
+            <div class="skills-grid">
+                <!-- 技能块示例 -->
+                <div class="skill-badge">
+                    <span class="badge-name">UX/UI Design</span>
+                    <span class="badge-desc">从概念到原型设计</span>
+                </div>
+                <div class="skill-badge">
+                    <span class="badge-name">Product Research</span>
+                    <span class="badge-desc">用户访谈与数据分析</span>
+                </div>
+                <div class="skill-badge">
+                    <span class="badge-name">Prototyping</span>
+                    <span class="badge-desc">Figma / Sketch 高保真原型</span>
+                </div>
+                <div class="skill-badge">
+                    <span class="badge-name">Brand Strategy</span>
+                    <span class="badge-desc">品牌识别系统构建</span>
+                </div>
+            </div>
+        </div>
+    </section>
 
-            const timeString = `${hours}:${minutes}:${seconds} ${ampm}`;
-            document.getElementById('time').textContent = timeString;
+    <!-- 4. 作品集展示 (Portfolio Section) -->
+    <section id="portfolio" class="section padding-vertical">
+        <div class="container">
+            <h3 class="section-title">Featured Projects</h3>
+            <p class="section-subtitle">精选作品，展示我的设计广度和深度。</p>
+            <div class="portfolio-grid">
+                <!-- 项目卡片示例 -->
+                <div class="project-card hover-effect">
+                    <div class="project-media">
+                        <img src="placeholder_project_1.jpg" alt="项目一">
+                    </div>
+                    <div class="project-info">
+                        <span class="project-category">SaaS / 数据看板</span>
+                        <h4>项目名称 A</h4>
+                        <p>解决复杂的运营数据可视化难题，提高用户效率。</p>
+                        <a href="#" class="project-link">查看详情 &rarr;</a>
+                    </div>
+                </div>
+                <div class="project-card hover-effect">
+                    <div class="project-media">
+                        <img src="placeholder_project_2.jpg" alt="项目二">
+                    </div>
+                    <div class="project-info">
+                        <span class="project-category">品牌/电商</span>
+                        <h4>项目名称 B</h4>
+                        <p>重新构建电商购买流程，优化从浏览到购买的每一个接触点。</p>
+                        <a href="#" class="project-link">查看详情 &rarr;</a>
+                    </div>
+                </div>
+                <div class="project-card hover-effect">
+                    <div class="project-media">
+                        <img src="placeholder_project_3.jpg" alt="项目三">
+                    </div>
+                    <div class="project-info">
+                        <span class="project-category">App / 体验优化</span>
+                        <h4>项目名称 C</h4>
+                        <p>为移动端创建全新的注册和权限管理流程，大大降低用户流失率。</p>
+                        <a href="#" class="project-link">查看详情 &rarr;</a>
+                    </div>
+                </div>
+                <!-- 可以添加更多项目卡片 -->
+            </div>
+        </div>
+    </section>
 
-            // 2. 日期 (本地化格式)
-            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-            const formattedDate = now.toLocaleDateString('zh-CN', options);
-            document.getElementById('date').textContent = formattedDate;
-        }
+    <!-- 5. 联系方式 (Contact Section) -->
+    <section id="contact" class="section padding-vertical">
+        <div class="container">
+            <h3 class="section-title centered">期待与您深度对话</h3>
+            <p class="section-subtitle centered">无论您有什么商业构想或设计难题，都欢迎联系我。</p>
+            <form class="contact-form">
+                <div class="form-group">
+                    <label for="name">姓名</label>
+                    <input type="text" id="name" placeholder="请输入您的名字" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">邮箱</label>
+                    <input type="email" id="email" placeholder="required@example.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">留言</label>
+                    <textarea id="message" rows="5" placeholder="您希望讨论的内容是什么？"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">发送消息</button>
+            </form>
+        </div>
+    </section>
 
-        // 立即执行一次，并每秒更新
-        setInterval(updateClock, 1000);
-        updateClock();
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
